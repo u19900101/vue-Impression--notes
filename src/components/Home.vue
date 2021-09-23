@@ -827,12 +827,14 @@
 
         // 钩子函数 请求数据同步vuex
         created(){
-            let Storage = JSON.parse(localStorage.getItem('yinxiang'));
-            if(Storage === null){
+
+            let Storage = localStorage.getItem('yinxiang');
+            if(Storage === null || Storage == 'undefined'){
                 this.getList();
             }else{
+                Storage = JSON.parse(Storage);
                 // 从locaLStorage中取数据
-                this.$store.dispatch('success',{data:Storage});
+                this.$store.dispatch('success',Storage);
                 this.allNoteList = this.$store.state.allList;
                 let id = this.$route.params.id;
 

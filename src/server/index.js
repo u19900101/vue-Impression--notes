@@ -2,11 +2,11 @@ import axios from 'axios'
 import Vue from 'vue'
 
 const vm = axios.create({
-   baseURL:' https://www.easy-mock.com/mock/5ab65e6264bf8d1e392c165f/example'
+   baseURL:'http://localhost:8600'
 });
 
 export function getList(){
-   return vm.get('/yinxiangbiji')
+   return vm.get('/note.json')
 }
 
 export default {
